@@ -94,13 +94,12 @@ export class BoiteAuLettreComponent implements OnInit {
     boiteAuLettreInDb.courriersNonVu = courriers.filter(courrier => !courrier.vu).length;
 
     boiteAuLettreInDb.opened = boiteAuLettre.opened;
-    boiteAuLettre = boiteAuLettreInDb;
-    /*
+    
     for(let i=0; i<this.boiteAuLettres.length;i++) {
       if(this.boiteAuLettres[i].id==boiteAuLettreInDb.id) {
         this.boiteAuLettres[i] = boiteAuLettreInDb;
       }
-    }*/
+    }
   }
 
 
