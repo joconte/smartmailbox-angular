@@ -1,0 +1,34 @@
+<div *ngIf="isAdmin">
+    <button type="button" class="btn btn-primary admin-btn" (click)="getMyBoiteAuLettres()">My mailboxs</button>
+    <button type="button" class="btn btn-primary admin-btn" (click)="getAllBoiteAuLettres()">All mailboxs (admin)</button>
+</div>
+<div class="row">
+    <div class="box" *ngFor="let boiteAuLettre of boiteAuLettres" [ngClass]="boiteAuLettre.opened ? 'w-100 p-3' : ''">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="!boiteAuLettre.opened ? 'active' : ''"
+                            (click)="boiteAuLettre.opened=false;">Summary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="boiteAuLettre.opened ? 'active' : ''"
+                            (click)="boiteAuLettre.opened=true;">Details</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ boiteAuLettre.description }}</h5>
+                <p class="card-text">Total number of mails : {{ boiteAuLettre.courriersTotal }}</p>
+                <p class="card-text">Last activity : {{ boiteAuLettre.lastActivity | date: 'yyyy-MM-dd' }}</p>
+                <p class="card-text">Unseen mails : {{ boiteAuLettre.courriersNonVu }}</p>
+            </div>
+            <div class="card-body" *ngIf="boiteAuLettre.opened">
+                <app-courrier [boiteAuLettre]="boiteAuLettre"></app-courrier>
+            </div>
+            <div class="card-body" *ngIf="isAdmin">
+                    <button type="button" class="btn btn-primary admin-btn" (click)="postNewMail(boiteAuLettre)">Send mail (admin)</button>
+            </div>
+        </div>
+    </div>
+</div>

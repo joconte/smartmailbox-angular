@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.labelForm {
+
+}
+input {
+    margin-bottom: 2%;
+    /*border: 1px solid black;*/
+    width: 295px;
+    font-size: 1.5em;
+
+}
+.submitButton {
+    border: 1px solid lightskyblue;
+    border-radius: 30px;
+    text-align: center;
+    position: absolute;
+    font-size: 1.5em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightskyblue;
+    color: white;
+}
+form {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.box {
+    margin: 2%;
+}
