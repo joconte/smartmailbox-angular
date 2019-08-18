@@ -14,8 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { CourrierComponent } from './components/courrier/courrier.component';
+import { CourrierListComponent } from './components/courrier-list/courrier-list.component';
 import { BoiteAuLettreComponent } from './components/boite-au-lettre/boite-au-lettre.component';
+import { CourrierComponent } from './components/courrier/courrier.component';
+import { CreateBoiteAuLettreComponent } from './components/create-boite-au-lettre/create-boite-au-lettre.component';
 
 const routes: Routes = [ 
   { path: 'login', component: LoginComponent},
@@ -31,7 +33,9 @@ const routes: Routes = [
     BoiteAuLettreListComponent,
     BoiteAuLettreComponent,
     NavigationComponent,
-    CourrierComponent
+    CourrierListComponent,
+    CourrierComponent,
+    CreateBoiteAuLettreComponent
   ],
   imports: [
     BrowserModule,

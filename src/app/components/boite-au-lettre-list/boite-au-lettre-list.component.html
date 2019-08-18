@@ -3,7 +3,10 @@
     <button type="button" class="btn btn-primary admin-btn" (click)="getAllBoiteAuLettres()">All mailboxs (admin)</button>
 </div>
 <div class="row">
-    <div class="box" *ngFor="let boiteAuLettre of boiteAuLettres" [ngClass]="boiteAuLettre.opened ? 'w-100 p-3' : ''">
+    <div class="box" *ngFor="let boiteAuLettre of boiteAuLettres">
         <app-boite-au-lettre [boiteAuLettre]="boiteAuLettre" [isAdmin]="isAdmin"></app-boite-au-lettre>
+    </div>
+    <div class="box" *ngIf="isAdmin">
+        <app-create-boite-au-lettre (createdMailBox)="getAllBoiteAuLettres()"></app-create-boite-au-lettre>
     </div>
 </div>

@@ -38,7 +38,7 @@ export class CourrierService {
   }
 
   async putCourrierVu(courrier: Courrier) {
-    await this.http.put(Constants.Stringformat(Constants.putCourrierVu, courrier.id),null, this.httpOptions).toPromise();
+    return await this.http.put(Constants.Stringformat(Constants.putCourrierVu, courrier.id),null, this.httpOptions).toPromise();
   }
 
 }

@@ -33,4 +33,12 @@ export class BoiteAuLettreService {
   async getBoiteAuLettreById(id: number) {
     return await this.http.get(Constants.Stringformat(Constants.getBoiteAuLettreById,id),this.httpOptions).toPromise();
   }
+
+  async postCreateMailBox(serialNumber: string, description: string) {
+    let customMailBox = {
+      numeroSerie: serialNumber,
+      description: description
+    };
+    return await this.http.post(Constants.postCreateMailBox, customMailBox, this.httpOptions).toPromise();
+  }
 }

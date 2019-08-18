@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BoiteAuLettre } from 'src/app/models/boiteAuLettre';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 import { BoiteAuLettreService } from 'src/app/services/boite-au-lettre.service';
@@ -13,10 +13,13 @@ import { Courrier } from 'src/app/models/courrier';
 export class BoiteAuLettreComponent implements OnInit {
   @Input() boiteAuLettre: BoiteAuLettre;
   @Input() isAdmin: boolean;
+  
   constructor(private utilisateurService: UtilisateurService, private boiteAuLettreService: BoiteAuLettreService, private courrierService: CourrierService) { }
 
   ngOnInit() {
   }
+
+  
 
 
   async postNewMail() {
@@ -27,7 +30,16 @@ export class BoiteAuLettreComponent implements OnInit {
     boiteAuLettreInDb.courriersNonVu = courriers.filter(courrier => !courrier.vu).length;
     boiteAuLettreInDb.opened = this.boiteAuLettre.opened;
     this.boiteAuLettre = boiteAuLettreInDb;
-    
+
+  }
+
+  async update() {
+    let tempMailBox: BoiteAuLettre = await this.boiteAuLettreService.getBoiteAuLettreById(this.boiteAuLettre.id) as BoiteAuLettre;
+    let courriers: Courrier[] = await this.courrierService.getCourriersByIdMailBox(tempMailBox.id) as Courrier[];
+    tempMailBox.courriersTotal = courriers.length;
+    tempMailBox.courriersNonVu = courriers.filter(courrier => !courrier.vu).length;
+    tempMailBox.opened = this.boiteAuLettre.opened;
+    this.boiteAuLettre = tempMailBox;
   }
 
 

@@ -1,4 +1,4 @@
-<div class="card text-center">
+<div class="card text-center" [ngClass]="opened ? 'w-100 p-3' : ''">
     <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
             <li class="nav-item">
@@ -18,7 +18,7 @@
         <p class="card-text">Unseen mails : {{ boiteAuLettre.courriersNonVu }}</p>
     </div>
     <div class="card-body" *ngIf="boiteAuLettre.opened">
-        <app-courrier [boiteAuLettre]="boiteAuLettre"></app-courrier>
+        <app-courrier-list (courrierVu)="update()" [boiteAuLettre]="boiteAuLettre"></app-courrier-list>
     </div>
     <div class="card-body" *ngIf="isAdmin">
         <button type="button" class="btn btn-primary admin-btn" (click)="postNewMail(boiteAuLettre)">Send mail

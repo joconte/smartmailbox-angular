@@ -1,0 +1,24 @@
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            Create mailbox
+        </ul>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="boiteAuLettreCreate">
+            <div class="form-group">
+                <label>Description</label>
+                <input formControlName="description" type="text" class="form-control" aria-describedby="descriptionHelp"
+                    placeholder="Enter description">
+                <label class="errorMessage description"></label>
+            </div>
+            <div class="form-group">
+                <label>Serial number</label>
+                <input formControlName="serialNumber" type="text" class="form-control" aria-describedby="serialNumberHelp"
+                    placeholder="Enter serial number">
+                <label class="errorMessage serialNumber"></label>
+            </div>
+            <button (click)="createMailBox()" type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>

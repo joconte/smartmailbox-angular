@@ -8,6 +8,7 @@ export class Constants {
     static putSaveUserData: string = Constants.baseUrl + "secure/user";
     static getConnectedUserData: string = Constants.baseUrl + "secure/user/me";
     static getBoiteAuLettres: string = Constants.baseUrl + "secure/BAL";
+    static postCreateMailBox: string = Constants.baseUrl + "secure/BAL";
     static getAllBoiteAuLettres: string = Constants.baseUrl + "secure/BAL/all";
     static getBoiteAuLettreById: string = Constants.baseUrl + "secure/BAL/{0}";
     static getBoiteAuLettreTokenBySerialNumber: string = Constants.baseUrl + "secure/BAL/serialNumber/{0}";

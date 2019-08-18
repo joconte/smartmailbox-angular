@@ -1,20 +1,17 @@
-<div class="row">
-    <div class="box" *ngFor="let courrier of courriers">
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                        Mail
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">{{ courrier.dateReception | date: 'yyyy-MM-dd' }}</h5>
-                <h5 class="card-title">{{ courrier.dateReception | date: 'shortTime' }}</h5>
-                <p class="card-text">test</p>
-                <fa-icon *ngIf="courrier.vu" [icon]="faCheckCircle"></fa-icon>
-                <button *ngIf="!courrier.vu" type="button" class="btn btn-primary admin-btn" (click)="putCourrierVu(courrier)">Seen</button>
-            </div>
-        </div>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                Mail
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ courrier.dateReception | date: 'yyyy-MM-dd' }}</h5>
+        <h5 class="card-title">{{ courrier.dateReception | date: 'shortTime' }}</h5>
+        <p class="card-text">test</p>
+        <fa-icon *ngIf="courrier.vu" [icon]="faCheckCircle"></fa-icon>
+        <button *ngIf="!courrier.vu" type="button" class="btn btn-primary admin-btn"
+            (click)="putCourrierVu()">Seen</button>
     </div>
 </div>
